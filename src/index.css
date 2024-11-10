@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Unna:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+:root {
+    --bg-primary-color: #e9d5b8;
+    --text-primary-color: #705738;
+    --main-font: "Unna", serif;
+    --title-font: "Great Vibes", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-primary-color);
+    font-family: var(--main-font);
+}
+
+.decoration-container {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.decoration-flower {
+    width: 550px;
+    position: relative;
+    left: -250px;
+    bottom: -140px;
+}
