@@ -3,13 +3,20 @@ import { NavLink } from "react-router-dom";
 import ptFlag from "/pt_flag.jpg";
 import ukFlag from "/uk_flag.jpg";
 import "./Home.style.css";
+import { useState } from "react";
 
 const Home = () => {
+    const [language, setLanguage] = useState("pt");
+
+    const handleLanguageChange = (language: string) => {
+        setLanguage(language);
+    }
+
     return (
         <div className="home-container">
             <div className="flags-container">
-                <img className="flag" src={ptFlag} alt="Portuguese Flag" />
-                <img className="flag" src={ukFlag} alt="English Flag" />
+                <img onClick={() => handleLanguageChange("pt")} className="flag" src={ptFlag} alt="Portuguese Flag" />
+                <img onClick={() => handleLanguageChange("en")} className="flag" src={ukFlag} alt="English Flag" />
             </div>
 
             <p className="home-top">SAVE THE DATE</p>
@@ -19,13 +26,13 @@ const Home = () => {
 
             <div className="btn-container">
                 <NavLink to="/ceremony" className="btn-link">
-                    Cerimónia e Receção
+                    {language == "pt" ? "Cerimónia e Receção" : "Ceremony and Reception"}
                 </NavLink>
                 <NavLink to="/accomodations" className="btn-link">
-                    Acomodações
+                    {language == "pt" ? "Acomodações" : "Accomodations"}
                 </NavLink>
                 <NavLink to="/form" className="btn-link">
-                    Formulário
+                    {language == "pt" ? "Formulário" : "Form"}
                 </NavLink>
             </div>
         </div>
