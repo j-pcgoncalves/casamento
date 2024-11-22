@@ -3,6 +3,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 0px 30px;
 }
 
 .home-top {
@@ -39,6 +41,9 @@
     display: flex;
     gap: 10px;
     margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .btn-link {
@@ -48,4 +53,23 @@
     border: 1px solid var(--text-primary-color);
     border-radius: 30px;
     padding: 10px 30px;
+}
+
+@media only screen and (max-width: 550px) {
+    .home-top {
+        font-size: 30px;
+    }
+
+    .home-title {
+        font-size: 120px;
+    }
+
+    .home-date {
+        letter-spacing: 10px;
+        font-size: 20px;
+    }
+
+    .home-location {
+        font-size: 30px;
+    }
 }

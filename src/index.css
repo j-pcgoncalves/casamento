@@ -33,3 +33,9 @@ body {
     left: -250px;
     bottom: -140px;
 }
+
+@media only screen and (max-width: 1200px) {
+    .decoration-flower {
+        display: none;
+    }
+}
