@@ -1,27 +1,14 @@
 import { NavLink } from "react-router-dom";
-
-import ptFlag from "/pt_flag.jpg";
-import ukFlag from "/uk_flag.jpg";
-import "./Home.style.css";
 import { useContext } from "react";
+
+import "./Home.style.css";
 import { LanguageContext, LanguageContextType } from "../context/languageContext";
 
 const Home = () => {
-    const {language, setLanguage} = useContext(LanguageContext) as LanguageContextType;
-
-    console.log(language);
-
-    const handleLanguageChange = (language: string) => {
-        setLanguage(language);
-    }
+    const { language } = useContext(LanguageContext) as LanguageContextType;
 
     return (
         <div className="home-container">
-            <div className="flags-container">
-                <img onClick={() => handleLanguageChange("pt")} className="flag" src={ptFlag} alt="Portuguese Flag" />
-                <img onClick={() => handleLanguageChange("en")} className="flag" src={ukFlag} alt="English Flag" />
-            </div>
-
             <p className="home-top">SAVE THE DATE</p>
             <p className="home-title">Leonor & Darren</p>
             <p className="home-date"><b>18</b> | <b>07</b> | <b>2025</b></p>

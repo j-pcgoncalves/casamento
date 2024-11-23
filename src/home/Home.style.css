@@ -62,26 +62,6 @@
     transition: all 0.2s ease-in-out;
 }
 
-.flags-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.flag {
-    width: 50px;
-    cursor: pointer;
-    filter: opacity(0.3) sepia(1);
-    transition: all 0.2s ease-in-out;
-}
-
-.flag:hover {
-    filter: none;
-    transition: all 0.2s ease-in-out;
-}
-
 @media only screen and (max-width: 550px) {
     .home-top {
         font-size: 30px;
