@@ -3,10 +3,13 @@ import { NavLink } from "react-router-dom";
 import ptFlag from "/pt_flag.jpg";
 import ukFlag from "/uk_flag.jpg";
 import "./Home.style.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { LanguageContext, LanguageContextType } from "../context/languageContext";
 
 const Home = () => {
-    const [language, setLanguage] = useState("pt");
+    const {language, setLanguage} = useContext(LanguageContext) as LanguageContextType;
+
+    console.log(language);
 
     const handleLanguageChange = (language: string) => {
         setLanguage(language);
