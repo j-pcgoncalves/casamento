@@ -56,16 +56,19 @@
 .alert {
     position: absolute;
     top: 20px;
-    right: -500px;
+    right: 20px;
     display: flex;
     gap: 15px;
     color: white;
     padding: 20px;
     transition: all 0.2s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
 }
 
 .show-alert {
-    right: 20px;
+    visibility: visible;
+    opacity: 1;
 }
 
 .success-alert {
