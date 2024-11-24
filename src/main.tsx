@@ -8,6 +8,7 @@ import Home from './home/Home.component.tsx'
 import Ceremony from './conteudo/Ceremony.component.tsx'
 import LanguageProvider from './context/languageContext.tsx'
 import Accomodations from './conteudo/Accomodations.component.tsx'
+import Form from './form/Form.component.tsx'
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/accomodations",
         element: <Accomodations />
+      },
+      {
+        path: "/form",
+        element: <Form />
       },
     ]
   }

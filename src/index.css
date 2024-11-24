@@ -17,6 +17,7 @@
 body {
     background-color: var(--bg-primary-color);
     font-family: var(--main-font);
+    overflow-x: hidden;
 }
 
 .decoration-container {
