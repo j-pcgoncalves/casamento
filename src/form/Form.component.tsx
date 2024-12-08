@@ -5,7 +5,7 @@ import { FaCheck, FaX } from "react-icons/fa6";
 
 import { LanguageContext, LanguageContextType } from "../context/languageContext";
 import "./Form.style.css";
-import { app } from "../firebaseConfig";
+// import { app } from "../firebaseConfig";
 
 const Form = () => {
     const { language } = useContext(LanguageContext) as LanguageContextType;
@@ -45,8 +45,6 @@ const Form = () => {
             }, 1500);
         }
     }
-
-    console.log(app);
 
     return (
         <>
