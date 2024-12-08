@@ -9,7 +9,7 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            <p className="home-top">SAVE THE DATE</p>
+            <p className="home-top">You're invited to the wedding of</p>
             <p className="home-title">Leonor & Darren</p>
             <p className="home-date"><b>18</b> | <b>07</b> | <b>2025</b></p>
             <p className="home-location">Monte das Oliveiras<br /> Guia, Algarve</p>
@@ -22,7 +22,7 @@ const Home = () => {
                     {language == "pt" ? "Acomodações" : "Accomodations"}
                 </NavLink>
                 <NavLink to="/form" className="btn-link">
-                    {language == "pt" ? "Formulário" : "Form"}
+                    {language == "pt" ? "Aceitam o convite?" : "RSVP"}
                 </NavLink>
             </div>
         </div>

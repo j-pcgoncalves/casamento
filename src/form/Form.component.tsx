@@ -18,49 +18,17 @@ const Form = () => {
         setNome(event.currentTarget.value);
     }
 
-    const [convidados, setConvidados] = useState<string[]>([]);
-    const handleConvidadosChange = (event: FormEvent<HTMLInputElement>) => {
-        const nrConvidados = event.currentTarget.value;
-
-        setConvidados(Array(+nrConvidados).fill(""));
-    }
-    const handleConvidadoNomeChange = (event: FormEvent<HTMLInputElement>, index: number) => {
-        const newArrayConvidados = [...convidados];
-        newArrayConvidados[index] = event.currentTarget.value;
-
-        setConvidados(newArrayConvidados);
-    }
-
     const [restricoes, setRestricoes] = useState("");
     const handleRestricoesChange = (event: FormEvent<HTMLTextAreaElement>) => {
         setRestricoes(event.currentTarget.value);
     }
 
-    const checkConvidadosNomes = (arrayConvidados: string[]) => {
-        let nomesConvidadosValid = true;
-
-        if (arrayConvidados.length > 0) {
-            for (let i = 0; i < arrayConvidados.length; i++) {
-                if (arrayConvidados[i].length === 0) {
-                    nomesConvidadosValid = false;
-                }
-            }
-        } else {
-            nomesConvidadosValid = false;
-        }
-
-
-        return nomesConvidadosValid;
-    }
-
     const handleFormSubmit = () => {
-        const isConvidadosValid = checkConvidadosNomes(convidados);
 
-        if (nome && isConvidadosValid) {
+        if (nome) {
             setFormValid(true);
             setShowAlert(true);
             setNome("");
-            setConvidados([]);
             setRestricoes("");
             setTimeout(() => {
                 setShowAlert(false);
@@ -94,32 +62,6 @@ const Form = () => {
                         required
                     />
                 </div>
-                <div className="input-container">
-                    <label htmlFor="nr_convidados">{language === "pt" ? "Nrº de convidados" : "Nrº of guests"}</label>
-                    <input 
-                        className="input-box" 
-                        id="nr_convidados" 
-                        type="number" 
-                        onChange={handleConvidadosChange}
-                        placeholder={language === "pt" ? "Insira o nrº de convidados" : "Enter the number of guests"}
-                        required
-                    />
-                </div>
-
-                {convidados.map((convidado, index) => (
-                    <div key={index} className="input-container">
-                        <label htmlFor={`convidado_${index + 1}`}>{language === "pt" ? `Nome do convidado #${index + 1}` : `Name of guest #${index + 1}`}</label>
-                        <input 
-                            className="input-box" 
-                            id={`convidado_${index + 1}`}
-                            type="text" 
-                            onChange={(event) => handleConvidadoNomeChange(event, index)}
-                            value={convidado}
-                            placeholder={language === "pt" ? `Insira o nome do convidado #${index + 1}` : `Enter the name of guest #${index + 1}`}
-                            required
-                        />
-                    </div>
-                ))}
 
                 <div className="input-container">
                     <label htmlFor="restricoes">{language === "pt" ? "Restrições Alimentares" : "Dietary Restrictions"}</label>
