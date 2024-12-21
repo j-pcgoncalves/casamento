@@ -2,10 +2,11 @@ import { FaAngleLeft } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { FormEvent, useContext, useState } from "react";
 import { FaCheck, FaX } from "react-icons/fa6";
+import { collection, addDoc } from "firebase/firestore";
 
 import { LanguageContext, LanguageContextType } from "../context/languageContext";
 import "./Form.style.css";
-// import { app } from "../firebaseConfig";
+import { db } from "../firebaseConfig";
 
 const Form = () => {
     const { language } = useContext(LanguageContext) as LanguageContextType;
@@ -24,9 +25,13 @@ const Form = () => {
         setRestricoes(event.currentTarget.value);
     }
 
-    const handleFormSubmit = () => {
-
+    const handleFormSubmit = async () => {
         if (nome) {
+            await addDoc(collection(db, "convidados"), {
+                nome: nome,
+                restricoes: restricoes ? restricoes : ""
+            });
+
             setFormValid(true);
             setShowAlert(true);
             setNome("");
