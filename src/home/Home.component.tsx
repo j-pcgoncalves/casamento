@@ -24,6 +24,9 @@ const Home = () => {
                 <NavLink to="/form" className="btn-link">
                     {language == "pt" ? "Aceitam o convite?" : "RSVP"}
                 </NavLink>
+                <NavLink to="/faqs" className="btn-link">
+                    {language == "pt" ? "FAQs" : "FAQs"}
+                </NavLink>
             </div>
         </div>
     )
