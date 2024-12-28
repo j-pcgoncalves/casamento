@@ -10,6 +10,7 @@ import LanguageProvider from './context/languageContext.tsx'
 import Accomodations from './conteudo/Accomodations.component.tsx'
 import Form from './form/Form.component.tsx'
 import Faqs from './faqs/Faqs.component.tsx'
+import Admin from './admin/Admin.component.tsx'
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         element: <Faqs />
       },
     ]
+  },
+  {
+    path: "/admin",
+    element: <Admin />
   }
 ]);
 

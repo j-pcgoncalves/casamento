@@ -5,7 +5,6 @@ import { FaCheck, FaX } from "react-icons/fa6";
 import { collection, addDoc } from "firebase/firestore";
 
 import { LanguageContext, LanguageContextType } from "../context/languageContext";
-import "./Form.style.css";
 import { db } from "../firebaseConfig";
 
 const Form = () => {
