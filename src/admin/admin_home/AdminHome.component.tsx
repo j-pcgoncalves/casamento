@@ -18,21 +18,27 @@ const AdminHome = () => {
     
     useEffect(() => {
         const fetchData = async () => {
-            const querySnapshot = await getDocs(collection(db, "convidados"));
-            const newConvidadosList: ConvidadosDataType[] = [];
-
-            querySnapshot.forEach((doc) => {
-                const convidadoData = doc.data();
-
-                const convidadoInfo = {
-                    nome: convidadoData.nome,
-                    restricoes: convidadoData.restricoes
-                };
-
-                newConvidadosList.push(convidadoInfo);
-            });
-
-            setConvidadosList(newConvidadosList);
+            try {
+                const querySnapshot = await getDocs(collection(db, "convidados"));
+                const newConvidadosList: ConvidadosDataType[] = [];
+    
+                querySnapshot.forEach((doc) => {
+                    const convidadoData = doc.data();
+    
+                    const convidadoInfo = {
+                        nome: convidadoData.nome,
+                        restricoes: convidadoData.restricoes
+                    };
+    
+                    newConvidadosList.push(convidadoInfo);
+                });
+    
+                setConvidadosList(newConvidadosList);
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            } catch (_) {
+                localStorage.removeItem("isLogin");
+                navigate("/admin");
+            }
         }
 
         if (localStorage.getItem("isLogin") !== "true") {
