@@ -1,0 +1,20 @@
+table, th, td {
+    border: 1px solid var(--text-primary-color);
+    border-collapse: collapse;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-primary-color);
+    font-size: 25px;
+    word-break: break-word;
+}
+
+table {
+    margin: 200px auto;
+    border-radius: 10px;
+    width: 85%;
+    backdrop-filter: blur(10px);
+}
+
+th {
+    font-size: 30px;
+}

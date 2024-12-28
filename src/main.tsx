@@ -11,6 +11,7 @@ import Accomodations from './conteudo/Accomodations.component.tsx'
 import Form from './form/Form.component.tsx'
 import Faqs from './faqs/Faqs.component.tsx'
 import Admin from './admin/Admin.component.tsx'
+import AdminHome from './admin/admin_home/AdminHome.component.tsx'
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: <Admin />
+  },
+  {
+    path: "/admin/home",
+    element: <AdminHome />
   }
 ]);
 

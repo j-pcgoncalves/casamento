@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { FaX } from "react-icons/fa6";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,12 @@ import flower from "/flower_final.png";
 
 const Admin = () => {
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (localStorage.getItem("isLogin") === "true") {
+            navigate("/admin/home");
+        }
+    });
 
     const [showAlert, setShowAlert] = useState(false);
 
@@ -32,6 +38,7 @@ const Admin = () => {
             
             try {
                 await signInWithEmailAndPassword(auth, email, password);
+                localStorage.setItem("isLogin", "true");
                 navigate("/admin/home");
                 
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
