@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { collection, getDocs } from "firebase/firestore";
 
-import flower from "/flower_final.png";
+// import flower from "/flower_final.png";
 import { db } from "../../firebaseConfig";
 import "./AdminHome.style.css";
 
@@ -51,9 +51,9 @@ const AdminHome = () => {
     
     return (
         <>
-            <div className="decoration-container">
+            {/* <div className="decoration-container">
                 <img className="decoration-flower" src={flower} alt="Decorative Flower" />
-            </div>
+            </div> */}
 
             <table>
                 <thead>
