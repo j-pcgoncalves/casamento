@@ -15,7 +15,7 @@ const Accomodations = () => {
 
             <div className="conteudo-container">
                 <p className="conteudo-title">
-                    {language == "pt" ? "Acomodações" : "Accomodations"}
+                    {language == "pt" ? "Onde Ficar" : "Where to Stay"}
                 </p>
                 <div className="conteudo-text-container">
                     <p className="conteudo-text">

@@ -83,6 +83,12 @@ body {
     margin-bottom: 80px;
 }
 
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .input-container {
     display: flex;
     flex-direction: column;
