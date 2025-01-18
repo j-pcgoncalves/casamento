@@ -9,12 +9,27 @@ import "./AdminHome.style.css";
 type ConvidadosDataType = {
     nome: string;
     restricoes: string;
+    isGoing: string;
 }
 
 const AdminHome = () => {
     const navigate = useNavigate();
 
-    const [convidadosList, setConvidadosList] = useState<ConvidadosDataType[]>([]);
+    const [convidadosGoingList, setConvidadosGoingList] = useState<ConvidadosDataType[]>([]);
+    const [convidadosNotGoingList, setConvidadosNotGoingList] = useState<ConvidadosDataType[]>([]);
+
+    const [showGoing, setShowGoing] = useState<boolean>(true);
+    const [showNotGoing, setShowNotGoing] = useState<boolean>(false);
+
+    const handleGoingChange = (isGoing: boolean) => {
+        if (isGoing) {
+            setShowGoing(true);
+            setShowNotGoing(false);
+        } else {
+            setShowGoing(false);
+            setShowNotGoing(true);
+        }
+    }
     
     useEffect(() => {
         const fetchData = async () => {
@@ -27,13 +42,18 @@ const AdminHome = () => {
     
                     const convidadoInfo = {
                         nome: convidadoData.nome,
-                        restricoes: convidadoData.restricoes
+                        restricoes: convidadoData.restricoes,
+                        isGoing: convidadoData.isGoing
                     };
     
                     newConvidadosList.push(convidadoInfo);
                 });
+
+                const newConvidadosNotGoingList = newConvidadosList.filter((convidado) => convidado.isGoing === "false");
+                const newConvidadosGoingList = newConvidadosList.filter((convidado) => convidado.isGoing === "true");
     
-                setConvidadosList(newConvidadosList);
+                setConvidadosGoingList(newConvidadosGoingList);
+                setConvidadosNotGoingList(newConvidadosNotGoingList);
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
             } catch (_) {
                 localStorage.removeItem("isLogin");
@@ -55,23 +75,59 @@ const AdminHome = () => {
                 <img className="decoration-flower" src={flower} alt="Decorative Flower" />
             </div> */}
 
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Dietary Restrictions</th>
-                    </tr>
-                </thead>
+            <div className="btn-container">
+                <p 
+                    style={showGoing ? {backgroundColor: "var(--text-primary-color)", color: "var(--bg-primary-color)"} : {}} 
+                    className="btn-link"
+                    onClick={() => handleGoingChange(true)}
+                >
+                    Going to the wedding
+                </p>
+                <p 
+                    style={showNotGoing ? {backgroundColor: "var(--text-primary-color)", color: "var(--bg-primary-color)"} : {}} 
+                    className="btn-link"
+                    onClick={() => handleGoingChange(false)}
+                >
+                    Not Going to the wedding
+                </p>
+            </div>
 
-                <tbody>
-                    {convidadosList.map((convidado, index) => (
-                        <tr key={index}>
-                            <td>{convidado.nome}</td>
-                            <td>{convidado.restricoes ? convidado.restricoes : "None"}</td>
+            {showGoing ? (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Dietary Restrictions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+
+                    <tbody>
+                        {convidadosGoingList.map((convidado, index) => (
+                            <tr key={index}>
+                                <td>{convidado.nome}</td>
+                                <td>{convidado.restricoes ? convidado.restricoes : "None"}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {convidadosNotGoingList.map((convidado, index) => (
+                            <tr key={index}>
+                                <td>{convidado.nome}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
+
         </>
     )
 }

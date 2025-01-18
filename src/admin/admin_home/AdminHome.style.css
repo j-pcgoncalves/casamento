@@ -9,7 +9,7 @@ table, th, td {
 }
 
 table {
-    margin: 200px auto;
+    margin: 80px auto;
     border-radius: 10px;
     width: 85%;
     backdrop-filter: blur(10px);
@@ -17,4 +17,30 @@ table {
 
 th {
     font-size: 30px;
+}
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+.btn-link {
+    text-decoration: none;
+    color: var(--text-primary-color);
+    font-size: 25px;
+    border: 1px solid var(--text-primary-color);
+    border-radius: 30px;
+    padding: 10px 30px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    background-color: var(--text-primary-color);
+    color: var(--bg-primary-color);
+    transition: all 0.2s ease-in-out;
 }
